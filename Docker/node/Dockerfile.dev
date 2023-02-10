@@ -1,0 +1,17 @@
+## installing initial image
+FROM node:alpine
+
+## creating working directory
+WORKDIR '/app'
+
+## copying package.json for installing dependencies
+COPY package.json .
+
+## installing dependencies
+RUN npm install
+
+## copying all files into working directory(image)
+COPY . .
+
+## adding default command to the image
+CMD ["npm", "run", "dev"]
